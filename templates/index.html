@@ -1,0 +1,38 @@
+//templates/index.html
+<html>
+<head>
+<title>Python Flask Upload and Display Image</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<p><h1 align="center">Python Flask Upload and display image</h1></p>
+<div class="container">
+<div class="row">
+    <h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="post" action="#" id="uploadxray" enctype="multipart/form-data">
+        <p> Please Enter Your First Name: <input type = "text" name = "firstname" value = "fs"/> </p>
+        <p> Please Enter Your Last Name: <input type = "text" name = "surname" value = "ss"/> </p>
+        <input type="file" id="uploadedfile" name="myfile">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</div>
+</body>
+</html>
