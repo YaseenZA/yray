@@ -1,1 +1,1 @@
-web: gunicon picture_upload:app
+web: gunicorn picture_upload:app
